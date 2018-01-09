@@ -112,10 +112,10 @@ export * from "./services/contenful.service";
       GaDirective
   ]
 })
-export class SampleModule {
+export class FifUiKitAngularBase {
   static forRoot(): ModuleWithProviders {
     return {
-      ngModule: SampleModule,
+      ngModule: FifUiKitAngularBase,
       providers: [ContenfulService]
     };
   }
