@@ -1,5 +1,5 @@
 
-<div *ngIf="content!==false" [@fadeInEffect] class="card-group h-100">
+<div *ngIf="content!==false" class="card-group h-100">
   <a [routerLink]="['/beneficio-detalle/', content['sys']['id'] ]" class="card card-item text-dark mb-4">
     <img *ngIf="(content['fields']['bannerImage']&&content['fields']['bannerImage']['fields'])" class="card-img-top"
          src="{{content['fields']['bannerImage']['fields']['file']['url']}}"

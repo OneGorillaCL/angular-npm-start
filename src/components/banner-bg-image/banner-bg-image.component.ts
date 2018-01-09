@@ -1,11 +1,9 @@
 import {Component, OnInit, Input} from '@angular/core';
-import {fadeInEffect} from "../../animations/animations";
 
 @Component({
   selector: 'app-banner-bg-image',
   templateUrl: './banner-bg-image.component.html',
-  styleUrls: ['./banner-bg-image.component.css'],
-  animations: [fadeInEffect]
+  styleUrls: ['./banner-bg-image.component.css']
 })
 export class BannerBgImageComponent implements OnInit {
   @Input('content') content = false;

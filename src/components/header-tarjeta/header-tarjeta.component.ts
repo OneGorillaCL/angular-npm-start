@@ -1,11 +1,9 @@
 import {Component, OnInit, Input, SimpleChange, HostListener} from '@angular/core';
-import {fadeInEffect} from "../../animations/animations";
 
 @Component({
   selector: 'app-header-tarjeta',
   templateUrl: './header-tarjeta.component.html',
-  styleUrls: ['./header-tarjeta.component.css'],
-  animations: [fadeInEffect]
+  styleUrls: ['./header-tarjeta.component.css']
 })
 export class HeaderTarjetaComponent implements OnInit {
   @Input('content') content=false;

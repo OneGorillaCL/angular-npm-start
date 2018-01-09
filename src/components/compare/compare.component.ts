@@ -1,12 +1,10 @@
 import {Component, Input, OnInit, SimpleChange} from '@angular/core';
-import {fadeInEffect} from "../../animations/animations";
 import {isUndefined} from "util";
 
 @Component({
   selector: 'app-compare',
   templateUrl: './compare.component.html',
-  styleUrls: ['./compare.component.css'],
-  animations: [fadeInEffect]
+  styleUrls: ['./compare.component.css']
 })
 export class CompareComponent implements OnInit {
   @Input('content') content = false;

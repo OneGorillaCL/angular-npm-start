@@ -1,7 +1,6 @@
 import { Component, Directive, ElementRef, EventEmitter, HostListener, Inject, Injectable, Input, NgModule, Output, Pipe, Renderer2 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
-import { animate, style, transition, trigger } from '@angular/animations';
 import { createClient } from 'contentful';
 import { isUndefined } from 'util';
 import { DOCUMENT } from '@angular/platform-browser';
@@ -114,21 +113,6 @@ var HeaderComponent = (function () {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var fadeInEffect = trigger('fadeInEffect', [
-    transition(':enter', [
-        style({ transform: '', opacity: 0 }),
-        animate('500ms', style({ transform: '', 'opacity': 1 }))
-    ]),
-    transition(':leave', [
-        style({ transform: '', 'opacity': 1 }),
-        animate('500ms', style({ transform: '', 'opacity': 0 }))
-    ])
-]);
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes} checked by tsc
- */
 var HeaderPageComponent = (function () {
     function HeaderPageComponent() {
         var _this = this;
@@ -182,9 +166,8 @@ var HeaderPageComponent = (function () {
     HeaderPageComponent.decorators = [
         { type: Component, args: [{
                     selector: 'app-header-page',
-                    template: "<!-- FEATURED --> <header *ngIf=\"(content !== false && bannerImage !== false)\" [@fadeInEffect] appJarallax class=\"section banner-lg d-flex align-items-center bg-image bg-parallax has-circle mb-4\" [ngStyle]=\"{'background-image': 'url(' + bannerImage + ')'}\"> <div class=\"container text-center\"> <div class=\"circle-container\"> <span class=\"circle\"></span> <h1 *ngIf=\"content['fields']['title']\" class=\"\">{{content['fields']['title']}}</h1> <div class=\"container-cover text-center m-auto\"> <p *ngIf=\"content['fields']['subtitle']\" class=\"lead\">{{content['fields']['subtitle']}}</p> </div> </div> </div> </header> ",
-                    styles: [""],
-                    animations: [fadeInEffect]
+                    template: "<!-- FEATURED --> <header *ngIf=\"(content !== false && bannerImage !== false)\" appJarallax class=\"section banner-lg d-flex align-items-center bg-image bg-parallax has-circle mb-4\" [ngStyle]=\"{'background-image': 'url(' + bannerImage + ')'}\"> <div class=\"container text-center\"> <div class=\"circle-container\"> <span class=\"circle\"></span> <h1 *ngIf=\"content['fields']['title']\" class=\"\">{{content['fields']['title']}}</h1> <div class=\"container-cover text-center m-auto\"> <p *ngIf=\"content['fields']['subtitle']\" class=\"lead\">{{content['fields']['subtitle']}}</p> </div> </div> </div> </header> ",
+                    styles: [""]
                 },] },
     ];
     /** @nocollapse */
@@ -307,9 +290,8 @@ var SliderComponent = (function () {
     SliderComponent.decorators = [
         { type: Component, args: [{
                     selector: 'app-slider',
-                    template: "<section *ngIf=\"(content !== false)\" [@fadeInEffect] class=\"section mb-4 mt-4 border border-light\"> <h2 *ngIf=\"(title !== '')\" class=\"text-center font-weight-light mb-4\">{{title}}</h2> <!-- SLIDER --> <div appSwiper class=\"item-slider\" id=\"slider-promociones\"> <div class=\"swiper-container\"> <div class=\"swiper-wrapper\"> <!-- SLIDE --> <div class=\"swiper-slide\" *ngFor=\"let item of content; let idx = index;\"> <a href=\"{{item['fields']['actionUrl']}}\" appGa=\"GAevent\" appGaCategory=\"Calugas Promociones Mundo Falabella\" appGaAction=\"Caluga {{idx}}\" appGaLabel=\"Clic Aqui\" class=\"card card-item text-dark mb-4\"> <img *ngIf=\"item['fields']['image'] && item['fields']['image']['fields']['file']\" class=\"card-img-top\" src=\"{{item['fields']['image']['fields']['file']['url']}}\" alt=\"{{item['fields']['image']['fields']['title']}}\"> <div class=\"card-body\"> <img *ngIf=\"item['fields']['logo'] && item['fields']['logo']['fields']['file']\" class=\"d-block mb-2\" height=\"40px\" src=\"{{item['fields']['logo']['fields']['file']['url']}}\" alt=\"{{item['fields']['logo']['fields']['title']}}\"> <h3 *ngIf=\"item['fields']['preText']\">{{item['fields']['preText']}}</h3> <p *ngIf=\"item['fields']['text']\" class=\"card-text font-weight-light\"> {{item['fields']['text']}} </p> </div> </a> </div> </div> <div class=\"swiper-pagination\"></div> </div> <div class=\"slider-next\"> <span class=\"icon icon-fixed\"> <svg viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"> <path d=\"M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z\"/> <path d=\"M0 0h24v24H0z\" fill=\"none\"/> </svg> </span> </div> <div class=\"slider-prev\"> <div class=\"icon icon-fixed\"> <svg viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"> <path d=\"M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z\"/> <path d=\"M0 0h24v24H0z\" fill=\"none\"/> </svg> </div> </div> </div> </section> ",
-                    styles: [""],
-                    animations: [fadeInEffect]
+                    template: "<section *ngIf=\"(content !== false)\" class=\"section mb-4 mt-4 border border-light\"> <h2 *ngIf=\"(title !== '')\" class=\"text-center font-weight-light mb-4\">{{title}}</h2> <!-- SLIDER --> <div appSwiper class=\"item-slider\" id=\"slider-promociones\"> <div class=\"swiper-container\"> <div class=\"swiper-wrapper\"> <!-- SLIDE --> <div class=\"swiper-slide\" *ngFor=\"let item of content; let idx = index;\"> <a href=\"{{item['fields']['actionUrl']}}\" appGa=\"GAevent\" appGaCategory=\"Calugas Promociones Mundo Falabella\" appGaAction=\"Caluga {{idx}}\" appGaLabel=\"Clic Aqui\" class=\"card card-item text-dark mb-4\"> <img *ngIf=\"item['fields']['image'] && item['fields']['image']['fields']['file']\" class=\"card-img-top\" src=\"{{item['fields']['image']['fields']['file']['url']}}\" alt=\"{{item['fields']['image']['fields']['title']}}\"> <div class=\"card-body\"> <img *ngIf=\"item['fields']['logo'] && item['fields']['logo']['fields']['file']\" class=\"d-block mb-2\" height=\"40px\" src=\"{{item['fields']['logo']['fields']['file']['url']}}\" alt=\"{{item['fields']['logo']['fields']['title']}}\"> <h3 *ngIf=\"item['fields']['preText']\">{{item['fields']['preText']}}</h3> <p *ngIf=\"item['fields']['text']\" class=\"card-text font-weight-light\"> {{item['fields']['text']}} </p> </div> </a> </div> </div> <div class=\"swiper-pagination\"></div> </div> <div class=\"slider-next\"> <span class=\"icon icon-fixed\"> <svg viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"> <path d=\"M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z\"/> <path d=\"M0 0h24v24H0z\" fill=\"none\"/> </svg> </span> </div> <div class=\"slider-prev\"> <div class=\"icon icon-fixed\"> <svg viewBox=\"0 0 24 24\" xmlns=\"http://www.w3.org/2000/svg\"> <path d=\"M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z\"/> <path d=\"M0 0h24v24H0z\" fill=\"none\"/> </svg> </div> </div> </div> </section> ",
+                    styles: [""]
                 },] },
     ];
     /** @nocollapse */
@@ -343,9 +325,8 @@ var BannerBgImageComponent = (function () {
     BannerBgImageComponent.decorators = [
         { type: Component, args: [{
                     selector: 'app-banner-bg-image',
-                    template: "<!-- BANNER --> <div *ngIf=\"(content !== false) && (content['fields']['contentAlignment'] !== 'bottom')\" [@fadeInEffect] class=\"d-flex bg-image banner-md mb-4 border border-light\" [ngStyle]=\"{'background-image': 'url(' + content['fields']['image']['fields']['file']['url'] + ')'}\" > <div class=\"row no-gutters flex-1\" [ngClass]=\"{ 'justify-content-center' : (content['fields']['contentAlignment'] === 'center'), 'justify-content-end' : (content['fields']['contentAlignment'] === 'right'), 'justify-content-start' : (content['fields']['contentAlignment'] === 'left')}\"> <div class=\"col-sm-6 col-lg-4 bg-transparency d-flex align-items-center\"> <div class=\"card bg-transparent border-0 text-center flex-1\"> <div class=\"card-body content-body-sm\"> <h3 *ngIf=\"(content['fields']['title'] !== '')\" class=\"h4\">{{content['fields']['title']}}</h3> <hr *ngIf=\"(getTextContent(content['fields']) !== '')\" class=\"hr-sm hr-bold\"> <p *ngIf=\"(getTextContent(content['fields']) !== '')\" [innerHtml]=\"getTextContent(content['fields'])\"></p> <a *ngIf=\"(content['fields']['actionTitle'] !== '' && content['fields']['actionUrl'] !== '')\" class=\"btn btn-lg btn-secondary mt-3 text-wrap btn-min-width\" href=\"{{content['fields']['actionUrl']}}\">{{content['fields']['actionTitle']}}</a> </div> </div> </div> </div> </div> <!-- BANNER --> <div *ngIf=\"(content !== false) && (content['fields']['contentAlignment'] === 'bottom')\" [@fadeInEffect] class=\"bg-light text-center mb-4\"> <img src=\"{{content['fields']['image']['fields']['file']['url']}}\" class=\"img-fluid\" alt=\"{{content['fields']['image']['fields']['titler']}}\"> <div class=\"content-body content-body-sm\"> <h2 *ngIf=\"(content['fields']['title'] !== '')\" class=\"font-weight-light\">{{content['fields']['title']}}</h2> <p *ngIf=\"(content['fields']['infoText'] !== '')\" [innerHtml]=\"content['fields']['infoText']\"></p> <a *ngIf=\"(content['fields']['actionTitle'] !== '' && content['fields']['actionUrl'] !== '')\" class=\"btn btn-lg btn-secondary btn-min-width text-wrap mt-3\" href=\"{{content['fields']['actionUrl']}}\">{{content['fields']['actionTitle']}}</a> </div> </div> ",
-                    styles: [""],
-                    animations: [fadeInEffect]
+                    template: "<!-- BANNER --> <div *ngIf=\"(content !== false) && (content['fields']['contentAlignment'] !== 'bottom')\" class=\"d-flex bg-image banner-md mb-4 border border-light\" [ngStyle]=\"{'background-image': 'url(' + content['fields']['image']['fields']['file']['url'] + ')'}\" > <div class=\"row no-gutters flex-1\" [ngClass]=\"{ 'justify-content-center' : (content['fields']['contentAlignment'] === 'center'), 'justify-content-end' : (content['fields']['contentAlignment'] === 'right'), 'justify-content-start' : (content['fields']['contentAlignment'] === 'left')}\"> <div class=\"col-sm-6 col-lg-4 bg-transparency d-flex align-items-center\"> <div class=\"card bg-transparent border-0 text-center flex-1\"> <div class=\"card-body content-body-sm\"> <h3 *ngIf=\"(content['fields']['title'] !== '')\" class=\"h4\">{{content['fields']['title']}}</h3> <hr *ngIf=\"(getTextContent(content['fields']) !== '')\" class=\"hr-sm hr-bold\"> <p *ngIf=\"(getTextContent(content['fields']) !== '')\" [innerHtml]=\"getTextContent(content['fields'])\"></p> <a *ngIf=\"(content['fields']['actionTitle'] !== '' && content['fields']['actionUrl'] !== '')\" class=\"btn btn-lg btn-secondary mt-3 text-wrap btn-min-width\" href=\"{{content['fields']['actionUrl']}}\">{{content['fields']['actionTitle']}}</a> </div> </div> </div> </div> </div> <!-- BANNER --> <div *ngIf=\"(content !== false) && (content['fields']['contentAlignment'] === 'bottom')\" [@fadeInEffect] class=\"bg-light text-center mb-4\"> <img src=\"{{content['fields']['image']['fields']['file']['url']}}\" class=\"img-fluid\" alt=\"{{content['fields']['image']['fields']['titler']}}\"> <div class=\"content-body content-body-sm\"> <h2 *ngIf=\"(content['fields']['title'] !== '')\" class=\"font-weight-light\">{{content['fields']['title']}}</h2> <p *ngIf=\"(content['fields']['infoText'] !== '')\" [innerHtml]=\"content['fields']['infoText']\"></p> <a *ngIf=\"(content['fields']['actionTitle'] !== '' && content['fields']['actionUrl'] !== '')\" class=\"btn btn-lg btn-secondary btn-min-width text-wrap mt-3\" href=\"{{content['fields']['actionUrl']}}\">{{content['fields']['actionTitle']}}</a> </div> </div> ",
+                    styles: [""]
                 },] },
     ];
     /** @nocollapse */
@@ -391,9 +372,8 @@ var BannerDefaultComponent = (function () {
     BannerDefaultComponent.decorators = [
         { type: Component, args: [{
                     selector: 'app-banner-default',
-                    template: "<!-- MESES SIN INTERESES --> <div *ngIf=\"(content && content['fields']['contentPosition']!=='content only')\" [@fadeInEffect] class=\"text-center border border-light mb-4\"> <div class=\"row align-items-center\"> <div class=\"col-md-6\" [ngClass]=\"{ 'order-md-2' : (index % 2 === 1) }\"> <img *ngIf=\"(content['fields']['image']['fields']['file'])\" src=\"{{content['fields']['image']['fields']['file']['url']}}\" class=\"img-fluid\" alt=\"{{content['fields']['image']['fields']['title']}}\"> </div> <div class=\"col-md-6\"> <div class=\"content-body\"> <h2 *ngIf=\"(content['fields']['title']!=='')\" class=\"font-weight-light\">{{content['fields']['title']}}</h2> <p *ngIf=\"(getTextContent(content['fields']) !== '')\" [innerHtml]=\"(getTextContent(content['fields']) | marked)\"></p> <a *ngIf=\"(content['fields']['actionTitle'])\" target=\"{{target}}\" appGa=\"GAevent\" appGaCategory=\"Promociones Mundo Falabella\" appGaAction=\"{{content['fields']['title']}}\" appGaLabel=\"{{content['fields']['title']}}\" class=\"btn btn-lg btn-secondary text-wrap mt-3 btn-min-width\" href=\"{{content['fields']['actionUrl']}}\">{{content['fields']['actionTitle']}}</a> </div> </div> </div> </div> <!-- OPORTUNIDADES --> <div *ngIf=\"(content && content['fields']['contentPosition']==='content only')\" [@fadeInEffect] class=\"bg-light mb-4\"> <div class=\"py-5 px-3 px-md-5\"> <h2 *ngIf=\"(content['fields']['title']!=='')\" class=\"text-center font-weight-light mb-5\">{{content['fields']['title']}}</h2> <div [innerHtml]=\"(content['fields']['content'] | marked)\"></div> </div> </div> ",
-                    styles: [""],
-                    animations: [fadeInEffect]
+                    template: "<!-- MESES SIN INTERESES --> <div *ngIf=\"(content && content['fields']['contentPosition']!=='content only')\" class=\"text-center border border-light mb-4\"> <div class=\"row align-items-center\"> <div class=\"col-md-6\" [ngClass]=\"{ 'order-md-2' : (index % 2 === 1) }\"> <img *ngIf=\"(content['fields']['image']['fields']['file'])\" src=\"{{content['fields']['image']['fields']['file']['url']}}\" class=\"img-fluid\" alt=\"{{content['fields']['image']['fields']['title']}}\"> </div> <div class=\"col-md-6\"> <div class=\"content-body\"> <h2 *ngIf=\"(content['fields']['title']!=='')\" class=\"font-weight-light\">{{content['fields']['title']}}</h2> <p *ngIf=\"(getTextContent(content['fields']) !== '')\" [innerHtml]=\"(getTextContent(content['fields']) | marked)\"></p> <a *ngIf=\"(content['fields']['actionTitle'])\" target=\"{{target}}\" appGa=\"GAevent\" appGaCategory=\"Promociones Mundo Falabella\" appGaAction=\"{{content['fields']['title']}}\" appGaLabel=\"{{content['fields']['title']}}\" class=\"btn btn-lg btn-secondary text-wrap mt-3 btn-min-width\" href=\"{{content['fields']['actionUrl']}}\">{{content['fields']['actionTitle']}}</a> </div> </div> </div> </div> <!-- OPORTUNIDADES --> <div *ngIf=\"(content && content['fields']['contentPosition']==='content only')\" [@fadeInEffect] class=\"bg-light mb-4\"> <div class=\"py-5 px-3 px-md-5\"> <h2 *ngIf=\"(content['fields']['title']!=='')\" class=\"text-center font-weight-light mb-5\">{{content['fields']['title']}}</h2> <div [innerHtml]=\"(content['fields']['content'] | marked)\"></div> </div> </div> ",
+                    styles: [""]
                 },] },
     ];
     /** @nocollapse */
@@ -425,9 +405,8 @@ var CardComponent = (function () {
     CardComponent.decorators = [
         { type: Component, args: [{
                     selector: '[app-card]',
-                    template: " <div *ngIf=\"content!==false\" [@fadeInEffect] class=\"card-group h-100\"> <a [routerLink]=\"['/beneficio-detalle/', content['sys']['id'] ]\" class=\"card card-item text-dark mb-4\"> <img *ngIf=\"(content['fields']['bannerImage']&&content['fields']['bannerImage']['fields'])\" class=\"card-img-top\" src=\"{{content['fields']['bannerImage']['fields']['file']['url']}}\" alt=\"{{content['fields']['bannerImage']['fields']['title']}}\"> <div class=\"card-body\"> <img *ngIf=\"(content['fields']['logoImage']&&content['fields']['logoImage']['fields'])\" src=\"{{content['fields']['logoImage']['fields']['file']['url']}}\" class=\"d-block mb-2\" height=\"40px\" alt=\"{{content['fields']['logoImage']['fields']['title']}}\"> <h3>{{content['fields']['preTextDestacado']}}</h3> <p class=\"card-text\">         {{content['fields']['textDestacado']}} </p> </div> </a> </div> ",
-                    styles: [""],
-                    animations: [fadeInEffect]
+                    template: " <div *ngIf=\"content!==false\" class=\"card-group h-100\"> <a [routerLink]=\"['/beneficio-detalle/', content['sys']['id'] ]\" class=\"card card-item text-dark mb-4\"> <img *ngIf=\"(content['fields']['bannerImage']&&content['fields']['bannerImage']['fields'])\" class=\"card-img-top\" src=\"{{content['fields']['bannerImage']['fields']['file']['url']}}\" alt=\"{{content['fields']['bannerImage']['fields']['title']}}\"> <div class=\"card-body\"> <img *ngIf=\"(content['fields']['logoImage']&&content['fields']['logoImage']['fields'])\" src=\"{{content['fields']['logoImage']['fields']['file']['url']}}\" class=\"d-block mb-2\" height=\"40px\" alt=\"{{content['fields']['logoImage']['fields']['title']}}\"> <h3>{{content['fields']['preTextDestacado']}}</h3> <p class=\"card-text\">         {{content['fields']['textDestacado']}} </p> </div> </a> </div> ",
+                    styles: [""]
                 },] },
     ];
     /** @nocollapse */
@@ -495,9 +474,8 @@ var HeaderTarjetaComponent = (function () {
     HeaderTarjetaComponent.decorators = [
         { type: Component, args: [{
                     selector: 'app-header-tarjeta',
-                    template: "<header *ngIf=\"(content !== false && bannerImage !== false)\" [@fadeInEffect] appJarallax class=\"section banner-lg d-flex align-items-center bg-image bg-parallax has-circle\" [ngStyle]=\"{'background-image': 'url(' + bannerImage + ')'}\"> <div class=\"container text-center\"> <div class=\"circle-container\"> <span class=\"circle\"></span> <h1 *ngIf=\"content['fields']['title']\">{{content['fields']['title']}}</h1> <div class=\"container-cover text-center m-auto\"> <p *ngIf=\"content['fields']['subTitle']\" class=\"lead\">{{content['fields']['subTitle']}}</p> </div> <img *ngIf=\"content['fields']['cardImage']\" class=\"img-fluid\" src=\"{{content['fields']['cardImage']['fields']['file']['url']}}\" alt=\"{{content['fields']['cardImage']['fields']['title']}}\" /> <a *ngIf=\"content['fields']['actionTitle']\" href=\"{{content['fields']['actionUrl']}}\" class=\"btn btn-lg btn-primary text-wrap\">{{content['fields']['actionTitle']}}</a> </div> </div> </header> ",
-                    styles: [""],
-                    animations: [fadeInEffect]
+                    template: "<header *ngIf=\"(content !== false && bannerImage !== false)\" appJarallax class=\"section banner-lg d-flex align-items-center bg-image bg-parallax has-circle\" [ngStyle]=\"{'background-image': 'url(' + bannerImage + ')'}\"> <div class=\"container text-center\"> <div class=\"circle-container\"> <span class=\"circle\"></span> <h1 *ngIf=\"content['fields']['title']\">{{content['fields']['title']}}</h1> <div class=\"container-cover text-center m-auto\"> <p *ngIf=\"content['fields']['subTitle']\" class=\"lead\">{{content['fields']['subTitle']}}</p> </div> <img *ngIf=\"content['fields']['cardImage']\" class=\"img-fluid\" src=\"{{content['fields']['cardImage']['fields']['file']['url']}}\" alt=\"{{content['fields']['cardImage']['fields']['title']}}\" /> <a *ngIf=\"content['fields']['actionTitle']\" href=\"{{content['fields']['actionUrl']}}\" class=\"btn btn-lg btn-primary text-wrap\">{{content['fields']['actionTitle']}}</a> </div> </div> </header> ",
+                    styles: [""]
                 },] },
     ];
     /** @nocollapse */
@@ -528,9 +506,8 @@ var ContentBoxComponent = (function () {
     ContentBoxComponent.decorators = [
         { type: Component, args: [{
                     selector: 'app-content-box',
-                    template: "<div *ngIf=\"(content !== false)\" [@fadeInEffect] class=\"bg-light text-center mb-3\"> <img *ngIf=\"content['fields']['image']&&content['fields']['image']['fields']\" src=\"{{content['fields']['image']['fields']['file']['url']}}\" class=\"img-fluid\" alt=\"{{content['fields']['image']['fields']['title']}}\"> <div class=\"p-5\"> <h2 *ngIf=\"(content['fields']['title'])\" class=\"h1 font-weight-light mb-5\">{{(content['fields']['title'])}}</h2> <p class=\"lead mb-5\">{{(content['fields']['text'])}}</p> </div> </div> ",
-                    styles: [""],
-                    animations: [fadeInEffect]
+                    template: "<div *ngIf=\"(content !== false)\" class=\"bg-light text-center mb-3\"> <img *ngIf=\"content['fields']['image']&&content['fields']['image']['fields']\" src=\"{{content['fields']['image']['fields']['file']['url']}}\" class=\"img-fluid\" alt=\"{{content['fields']['image']['fields']['title']}}\"> <div class=\"p-5\"> <h2 *ngIf=\"(content['fields']['title'])\" class=\"h1 font-weight-light mb-5\">{{(content['fields']['title'])}}</h2> <p class=\"lead mb-5\">{{(content['fields']['text'])}}</p> </div> </div> ",
+                    styles: [""]
                 },] },
     ];
     /** @nocollapse */
@@ -560,9 +537,8 @@ var ContentTabTarjetaComponent = (function () {
     ContentTabTarjetaComponent.decorators = [
         { type: Component, args: [{
                     selector: 'app-content-tab-tarjeta',
-                    template: "<div *ngIf=\"(content !== false)\" [@fadeInEffect] class=\"row pb-5 border-bottom\"> <div *ngIf=\"(content['fields']['title'])\" class=\"col-12\"> <h4 class=\"font-weight-light mt-5 mb-5\">{{content['fields']['title']}}</h4> </div> <div class=\"col-12 col-md-5\"> <img *ngIf=\"(content['fields']['image']&&content['fields']['image']['fields'])\" class=\"img-fluid mb-3\" src=\"{{content['fields']['image']['fields']['file']['url']}}\" alt=\"{{content['fields']['image']['fields']['title']}}\"> </div> <div *ngIf=\"(content['fields']['text'])\" class=\"col-12 col-md-7 list-md-padding text-dark\" [innerHtml]=\"(content['fields']['text'] | marked)\"> </div> </div> ",
-                    styles: [""],
-                    animations: [fadeInEffect]
+                    template: "<div *ngIf=\"(content !== false)\" class=\"row pb-5 border-bottom\"> <div *ngIf=\"(content['fields']['title'])\" class=\"col-12\"> <h4 class=\"font-weight-light mt-5 mb-5\">{{content['fields']['title']}}</h4> </div> <div class=\"col-12 col-md-5\"> <img *ngIf=\"(content['fields']['image']&&content['fields']['image']['fields'])\" class=\"img-fluid mb-3\" src=\"{{content['fields']['image']['fields']['file']['url']}}\" alt=\"{{content['fields']['image']['fields']['title']}}\"> </div> <div *ngIf=\"(content['fields']['text'])\" class=\"col-12 col-md-7 list-md-padding text-dark\" [innerHtml]=\"(content['fields']['text'] | marked)\"> </div> </div> ",
+                    styles: [""]
                 },] },
     ];
     /** @nocollapse */
@@ -656,8 +632,7 @@ var CompareComponent = (function () {
         { type: Component, args: [{
                     selector: 'app-compare',
                     template: "<div *ngIf=\"content!==false\" class=\"row\"> <div class=\"col-md-4\"></div> <div class=\"col-md-8\"> <div class=\"row text-center mt-3 p-4\"> <div *ngFor=\"let tarjeta of content\" class=\"col-md-6 pr-4 pl-4\"> <img *ngIf=\"tarjeta['fields']['image'] && tarjeta['fields']['image']['fields']\" class=\"img-fluid mb-3\" src=\"{{tarjeta['fields']['image']['fields']['file']['url']}}\" alt=\"{{tarjeta['fields']['image']['fields']['title']}}\"> <p>{{tarjeta['fields']['nombreTarjeta']}}</p> <!-- <a *ngIf=\"tarjeta['fields']['actionUrl']\" href=\"{{tarjeta['fields']['actionUrl']}}\" class=\"btn btn-lg btn-primary\"> {{tarjeta['fields']['actionTitle']}}</a> --> </div> </div> </div> </div> <div *ngIf=\"content!==false\" class=\"bg-striped-childs mt-3 mt-md-3  mb-3 mb-md-3 text-center\"> <ng-container *ngFor=\"let item of compareData; let idx = index\" [ngSwitch]=\"getCompareCase(idx)\"> <div *ngSwitchCase=\"'_equals_'\" class=\"row segmented-childs align-items-center p-4\"> <div class=\"col-md-4 text-left font-weight-bold\">{{item['detalleLabel']}}</div> <div class=\"col-md-8\">{{item['detalleValue']}}</div> </div> <div *ngSwitchCase=\"'_default_'\" class=\"row segmented-childs align-items-center p-4\"> <div class=\"col-md-4 text-left font-weight-bold\">{{item['detalleLabel']}}</div> <div class=\"col-md-4\" *ngFor=\"let data of item['data']\"> <ng-container *ngIf=\"data['check']\"> <img src=\"assets/ic-check.svg\" alt=\"check\"> </ng-container> <ng-container *ngIf=\"data['check']===undefined\">{{data['detalleValue']}}</ng-container> <!-- <ng-container *ngIf=\"data['check']===undefined && data['detalleValue']===''\"> <img src=\"assets/ic-equis.svg\" alt=\"equis\"> </ng-container> --> </div> </div> </ng-container> <div class=\"row segmented-childs align-items-center p-4\"> <div class=\"col-md-4 text-left font-weight-bold\"></div> <div *ngFor=\"let tarjeta of content\" class=\"col-md-4\"> <a *ngIf=\"tarjeta['fields']['actionUrl2']\" href=\"{{tarjeta['fields']['actionUrl2']}}\" class=\"btn btn-lg btn-secondary\"> {{tarjeta['fields']['actionTitle2']}} </a> </div> <!-- <div class=\"col-md-4\"><a [routerLink]=\"['/tarjeta-falabella-soriana' ]\" class=\"btn btn-lg btn-secondary\">VER MÁS</a></div> <div class=\"col-md-4\"><a [routerLink]=\"['/tarjeta-falabella-soriana-mastercard' ]\" class=\"btn btn-lg btn-secondary\">VER MÁS</a></div>--> </div> </div> ",
-                    styles: [""],
-                    animations: [fadeInEffect]
+                    styles: [""]
                 },] },
     ];
     /** @nocollapse */
@@ -1250,4 +1225,4 @@ var FifUiKitAngularBase = (function () {
     return FifUiKitAngularBase;
 }());
 
-export { FifUiKitAngularBase, HeaderComponent, HeaderPageComponent, FooterComponent, SliderComponent, BannerBgImageComponent, BannerDefaultComponent, CardComponent, HeaderTarjetaComponent, ContentBoxComponent, ContentTabTarjetaComponent, CompareComponent, CardContactComponent, FaqComponent, LoaderComponent, CompareMobileComponent, GaDirective, DatepickerDirective, ScrolltoDirective, JarallaxDirective, SwiperDirective, HeadroomDirective, DropdownDirective, MarkedPipe, ContenfulService, fadeInEffect };
+export { FifUiKitAngularBase, HeaderComponent, HeaderPageComponent, FooterComponent, SliderComponent, BannerBgImageComponent, BannerDefaultComponent, CardComponent, HeaderTarjetaComponent, ContentBoxComponent, ContentTabTarjetaComponent, CompareComponent, CardContactComponent, FaqComponent, LoaderComponent, CompareMobileComponent, GaDirective, DatepickerDirective, ScrolltoDirective, JarallaxDirective, SwiperDirective, HeadroomDirective, DropdownDirective, MarkedPipe, ContenfulService };

@@ -1,11 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {fadeInEffect} from "../../animations/animations";
 
 @Component({
   selector: 'app-content-tab-tarjeta',
   templateUrl: './content-tab-tarjeta.component.html',
-  styleUrls: ['./content-tab-tarjeta.component.css'],
-  animations: [fadeInEffect]
+  styleUrls: ['./content-tab-tarjeta.component.css']
 })
 export class ContentTabTarjetaComponent implements OnInit {
   @Input('content') content: any = false;

@@ -1,5 +1,5 @@
 <!-- BANNER -->
-<div *ngIf="(content !== false) && (content['fields']['contentAlignment'] !== 'bottom')" [@fadeInEffect] class="d-flex bg-image banner-md mb-4 border border-light" [ngStyle]="{'background-image': 'url(' + content['fields']['image']['fields']['file']['url'] + ')'}" >
+<div *ngIf="(content !== false) && (content['fields']['contentAlignment'] !== 'bottom')" class="d-flex bg-image banner-md mb-4 border border-light" [ngStyle]="{'background-image': 'url(' + content['fields']['image']['fields']['file']['url'] + ')'}" >
   <div class="row no-gutters flex-1" [ngClass]="{
          'justify-content-center' : (content['fields']['contentAlignment'] === 'center'),
          'justify-content-end' : (content['fields']['contentAlignment'] === 'right'),

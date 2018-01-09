@@ -1,11 +1,9 @@
 import {Component, OnInit, Input, SimpleChange} from '@angular/core';
-import {fadeInEffect} from "../../animations/animations";
 
 @Component({
   selector: 'app-banner-default',
   templateUrl: './banner-default.component.html',
-  styleUrls: ['./banner-default.component.css'],
-  animations: [fadeInEffect]
+  styleUrls: ['./banner-default.component.css']
 })
 export class BannerDefaultComponent implements OnInit {
   @Input('content') content = false;

@@ -1,11 +1,9 @@
 import {Component, OnInit, Input, HostListener, SimpleChange} from '@angular/core';
-import {fadeInEffect} from "../../animations/animations";
 
 @Component({
   selector: 'app-header-page',
   templateUrl: './header-page.component.html',
-  styleUrls: ['./header-page.component.css'],
-  animations: [fadeInEffect]
+  styleUrls: ['./header-page.component.css']
 })
 export class HeaderPageComponent implements OnInit {
   @Input('content') content=false;
