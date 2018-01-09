@@ -1,4 +1,4 @@
-import { NgModule, ModuleWithProviders } from '@angular/core';
+import {NgModule, ModuleWithProviders, NO_ERRORS_SCHEMA} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RouterModule} from '@angular/router';
 
@@ -112,7 +112,7 @@ export * from "./services/contenful.service";
       ScrolltoDirective,
       CompareMobileComponent,
       GaDirective
-  ]
+  ], schemas: [NO_ERRORS_SCHEMA],
 })
 export class FifUiKitAngularBase {
   static forRoot(): ModuleWithProviders {

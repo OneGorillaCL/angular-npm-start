@@ -1,4 +1,4 @@
-import { Component, Directive, ElementRef, EventEmitter, HostListener, Inject, Injectable, Input, NgModule, Output, Pipe, Renderer2 } from '@angular/core';
+import { Component, Directive, ElementRef, EventEmitter, HostListener, Inject, Injectable, Input, NO_ERRORS_SCHEMA, NgModule, Output, Pipe, Renderer2 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { createClient } from 'contentful';
@@ -1218,7 +1218,7 @@ var FifUiKitAngularBase = (function () {
                         ScrolltoDirective,
                         CompareMobileComponent,
                         GaDirective
-                    ]
+                    ], schemas: [NO_ERRORS_SCHEMA],
                 },] },
     ];
     /** @nocollapse */

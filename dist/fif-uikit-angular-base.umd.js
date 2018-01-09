@@ -1217,7 +1217,7 @@ var FifUiKitAngularBase = (function () {
                         ScrolltoDirective,
                         CompareMobileComponent,
                         GaDirective
-                    ]
+                    ], schemas: [core.NO_ERRORS_SCHEMA],
                 },] },
     ];
     /** @nocollapse */
