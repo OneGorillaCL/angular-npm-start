@@ -1,5 +1,5 @@
 import {Component, OnInit, Input} from '@angular/core';
-import {fadeInEffect} from "../../animations";
+import {fadeInEffect} from "../../animations/animations";
 
 @Component({
   selector: 'app-banner-bg-image',

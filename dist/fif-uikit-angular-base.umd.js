@@ -1273,6 +1273,7 @@ exports.HeadroomDirective = HeadroomDirective;
 exports.DropdownDirective = DropdownDirective;
 exports.MarkedPipe = MarkedPipe;
 exports.ContenfulService = ContenfulService;
+exports.fadeInEffect = fadeInEffect;
 
 Object.defineProperty(exports, '__esModule', { value: true });
 

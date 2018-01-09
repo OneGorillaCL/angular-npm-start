@@ -1250,4 +1250,4 @@ var FifUiKitAngularBase = (function () {
     return FifUiKitAngularBase;
 }());
 
-export { FifUiKitAngularBase, HeaderComponent, HeaderPageComponent, FooterComponent, SliderComponent, BannerBgImageComponent, BannerDefaultComponent, CardComponent, HeaderTarjetaComponent, ContentBoxComponent, ContentTabTarjetaComponent, CompareComponent, CardContactComponent, FaqComponent, LoaderComponent, CompareMobileComponent, GaDirective, DatepickerDirective, ScrolltoDirective, JarallaxDirective, SwiperDirective, HeadroomDirective, DropdownDirective, MarkedPipe, ContenfulService };
+export { FifUiKitAngularBase, HeaderComponent, HeaderPageComponent, FooterComponent, SliderComponent, BannerBgImageComponent, BannerDefaultComponent, CardComponent, HeaderTarjetaComponent, ContentBoxComponent, ContentTabTarjetaComponent, CompareComponent, CardContactComponent, FaqComponent, LoaderComponent, CompareMobileComponent, GaDirective, DatepickerDirective, ScrolltoDirective, JarallaxDirective, SwiperDirective, HeadroomDirective, DropdownDirective, MarkedPipe, ContenfulService, fadeInEffect };

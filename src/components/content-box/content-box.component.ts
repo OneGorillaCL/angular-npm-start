@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {fadeInEffect} from "../../animations";
+import {fadeInEffect} from "../../animations/animations";
 
 @Component({
   selector: 'app-content-box',

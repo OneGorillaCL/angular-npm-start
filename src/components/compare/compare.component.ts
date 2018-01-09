@@ -1,5 +1,5 @@
 import {Component, Input, OnInit, SimpleChange} from '@angular/core';
-import {fadeInEffect} from "../../animations";
+import {fadeInEffect} from "../../animations/animations";
 import {isUndefined} from "util";
 
 @Component({

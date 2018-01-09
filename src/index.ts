@@ -57,6 +57,8 @@ export * from './pipes/marked.pipe';
 
 export * from "./services/contenful.service";
 
+export * from "./animations/animations";
+
 @NgModule({
   imports: [
     CommonModule
