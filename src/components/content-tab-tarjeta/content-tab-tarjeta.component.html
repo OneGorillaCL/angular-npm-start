@@ -1,0 +1,13 @@
+<div *ngIf="(content !== false)" [@fadeInEffect] class="row pb-5 border-bottom">
+  <div *ngIf="(content['fields']['title'])" class="col-12">
+    <h4 class="font-weight-light mt-5 mb-5">{{content['fields']['title']}}</h4>
+  </div>
+  <div class="col-12 col-md-5">
+    <img *ngIf="(content['fields']['image']&&content['fields']['image']['fields'])"
+         class="img-fluid mb-3" src="{{content['fields']['image']['fields']['file']['url']}}"
+         alt="{{content['fields']['image']['fields']['title']}}">
+  </div>
+  <div *ngIf="(content['fields']['text'])" class="col-12 col-md-7 list-md-padding text-dark"
+       [innerHtml]="(content['fields']['text'] | marked)">
+  </div>
+</div>

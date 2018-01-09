@@ -1,0 +1,19 @@
+
+<div *ngIf="content!==false" [@fadeInEffect] class="card-group h-100">
+  <a [routerLink]="['/beneficio-detalle/', content['sys']['id'] ]" class="card card-item text-dark mb-4">
+    <img *ngIf="(content['fields']['bannerImage']&&content['fields']['bannerImage']['fields'])" class="card-img-top"
+         src="{{content['fields']['bannerImage']['fields']['file']['url']}}"
+         alt="{{content['fields']['bannerImage']['fields']['title']}}">
+
+    <div class="card-body">
+      <img *ngIf="(content['fields']['logoImage']&&content['fields']['logoImage']['fields'])"
+           src="{{content['fields']['logoImage']['fields']['file']['url']}}" class="d-block mb-2" height="40px"
+           alt="{{content['fields']['logoImage']['fields']['title']}}">
+      <h3>{{content['fields']['preTextDestacado']}}</h3>
+      <p class="card-text">        
+        {{content['fields']['textDestacado']}}
+        </p>
+    </div>
+
+  </a>
+</div>

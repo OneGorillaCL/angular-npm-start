@@ -1,0 +1,43 @@
+<section *ngIf="content !== false || faqs !== false">
+
+  <img *ngIf="content!==false&&content['fields']['image']&&content['fields']['image']['fields']"
+       src="{{content['fields']['image']['fields']['file']['url']}}" class="img-fluid"
+       alt="{{content['fields']['image']['fields']['title']}}">
+
+  <h2 *ngIf="(content!==false&&content['fields']['title'])" class="text-center font-weight-light mt-5 mb-5">{{content['fields']['title']}}</h2>
+
+  <div *ngIf="faqs !== false" class="font-weight-light mt-3" id="accordion" role="tablist">
+
+    <div class="border-bottom" *ngFor="let item of faqs; let idx = index;">
+
+      <div class="row p-3  align-items-center">
+        <div class="col-12 col-md-12 " id="heading{{idx}}" role="tab">
+          <a class="h4" data-toggle="collapse" href="#collapse{{idx}}" aria-expanded="false" aria-controls="collapse{{idx}}">
+              <span class="icon icon-md icon-collapse">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"></path>
+                    <path d="M0 0h24v24H0z" fill="none"></path>
+                </svg>
+              </span> {{item['fields']['title']}}
+          </a>
+        </div>
+      </div>
+      <div id="collapse{{idx}}" class="collapse p-3"
+           [ngClass]="{'show' : idx === -1}" role="tabpanel"
+           [innerHtml]="item['fields']['questions'] | marked"
+           aria-labelledby="heading{{idx}}" data-parent="#accordion">
+        <!--<ng-container *ngFor="let pregunta of item['preguntas']">
+
+          <h5>{{pregunta['pregunta']}}</h5>
+          <ul *ngIf="pregunta['respuestas']">
+            <li *ngFor="let respuesta of pregunta['respuestas']" [innerHtml]="respuesta | marked"></li>
+          </ul>
+
+        </ng-container>-->
+      </div>
+
+    </div>
+
+  </div>
+
+</section>

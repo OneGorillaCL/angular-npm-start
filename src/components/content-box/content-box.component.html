@@ -1,0 +1,10 @@
+<div *ngIf="(content !== false)" [@fadeInEffect] class="bg-light text-center mb-3">
+  <img *ngIf="content['fields']['image']&&content['fields']['image']['fields']"
+       src="{{content['fields']['image']['fields']['file']['url']}}" class="img-fluid"
+       alt="{{content['fields']['image']['fields']['title']}}">
+  <div class="p-5">
+    <h2 *ngIf="(content['fields']['title'])" class="h1 font-weight-light mb-5">{{(content['fields']['title'])}}</h2>
+    <p class="lead mb-5">{{(content['fields']['text'])}}</p>
+  </div>
+
+</div>

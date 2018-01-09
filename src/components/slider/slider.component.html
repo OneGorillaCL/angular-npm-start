@@ -1,0 +1,50 @@
+<section *ngIf="(content !== false)" [@fadeInEffect] class="section mb-4 mt-4 border border-light">
+
+  <h2 *ngIf="(title !== '')" class="text-center font-weight-light mb-4">{{title}}</h2>
+
+  <!-- SLIDER -->
+  <div appSwiper class="item-slider" id="slider-promociones">
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <!-- SLIDE -->
+        <div class="swiper-slide" *ngFor="let item of content; let idx = index;">
+          <a href="{{item['fields']['actionUrl']}}"
+             appGa="GAevent"
+             appGaCategory="Calugas Promociones Mundo Falabella"
+             appGaAction="Caluga {{idx}}"
+             appGaLabel="Clic Aqui"
+             class="card card-item text-dark mb-4">
+            <img *ngIf="item['fields']['image'] && item['fields']['image']['fields']['file']" class="card-img-top" src="{{item['fields']['image']['fields']['file']['url']}}"
+                 alt="{{item['fields']['image']['fields']['title']}}">
+            <div class="card-body">
+              <img *ngIf="item['fields']['logo'] && item['fields']['logo']['fields']['file']" class="d-block mb-2" height="40px" src="{{item['fields']['logo']['fields']['file']['url']}}"
+                   alt="{{item['fields']['logo']['fields']['title']}}">
+                <h3 *ngIf="item['fields']['preText']">{{item['fields']['preText']}}</h3>
+                <p *ngIf="item['fields']['text']" class="card-text font-weight-light">
+                  {{item['fields']['text']}}
+                </p>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+    <div class="slider-next">
+					<span class="icon icon-fixed">
+						<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+						    <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+						    <path d="M0 0h24v24H0z" fill="none"/>
+						</svg>
+					</span>
+    </div>
+    <div class="slider-prev">
+      <div class="icon icon-fixed">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+          <path d="M0 0h24v24H0z" fill="none"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+</section>

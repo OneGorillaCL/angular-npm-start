@@ -1,0 +1,17 @@
+<header *ngIf="(content !== false && bannerImage !== false)" [@fadeInEffect] appJarallax class="section banner-lg d-flex align-items-center bg-image bg-parallax has-circle"
+        [ngStyle]="{'background-image': 'url(' + bannerImage + ')'}">
+	<div class="container text-center">
+		<div class="circle-container">
+			<span class="circle"></span>
+			<h1 *ngIf="content['fields']['title']">{{content['fields']['title']}}</h1>
+			<div class="container-cover text-center m-auto">
+				<p *ngIf="content['fields']['subTitle']" class="lead">{{content['fields']['subTitle']}}</p>
+			</div>
+          	<img *ngIf="content['fields']['cardImage']" class="img-fluid"
+               src="{{content['fields']['cardImage']['fields']['file']['url']}}"
+               alt="{{content['fields']['cardImage']['fields']['title']}}" />
+            <a *ngIf="content['fields']['actionTitle']" href="{{content['fields']['actionUrl']}}"
+             class="btn btn-lg btn-primary text-wrap">{{content['fields']['actionTitle']}}</a>
+		</div>
+	</div>
+</header>

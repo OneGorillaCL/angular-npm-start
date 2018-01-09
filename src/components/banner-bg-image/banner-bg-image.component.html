@@ -1,0 +1,30 @@
+<!-- BANNER -->
+<div *ngIf="(content !== false) && (content['fields']['contentAlignment'] !== 'bottom')" [@fadeInEffect] class="d-flex bg-image banner-md mb-4 border border-light" [ngStyle]="{'background-image': 'url(' + content['fields']['image']['fields']['file']['url'] + ')'}" >
+  <div class="row no-gutters flex-1" [ngClass]="{
+         'justify-content-center' : (content['fields']['contentAlignment'] === 'center'),
+         'justify-content-end' : (content['fields']['contentAlignment'] === 'right'),
+         'justify-content-start' : (content['fields']['contentAlignment'] === 'left')}">
+    <div class="col-sm-6 col-lg-4 bg-transparency d-flex align-items-center">
+      <div class="card bg-transparent border-0 text-center flex-1">
+        <div class="card-body content-body-sm">
+          <h3 *ngIf="(content['fields']['title'] !== '')" class="h4">{{content['fields']['title']}}</h3>
+          <hr *ngIf="(getTextContent(content['fields']) !== '')" class="hr-sm hr-bold">
+          <p *ngIf="(getTextContent(content['fields']) !== '')" [innerHtml]="getTextContent(content['fields'])"></p>
+          <a *ngIf="(content['fields']['actionTitle'] !== '' && content['fields']['actionUrl'] !== '')" class="btn btn-lg btn-secondary mt-3 text-wrap btn-min-width"
+             href="{{content['fields']['actionUrl']}}">{{content['fields']['actionTitle']}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BANNER -->
+<div *ngIf="(content !== false) && (content['fields']['contentAlignment'] === 'bottom')" [@fadeInEffect] class="bg-light text-center mb-4">
+  <img src="{{content['fields']['image']['fields']['file']['url']}}" class="img-fluid" alt="{{content['fields']['image']['fields']['titler']}}">
+  <div class="content-body content-body-sm">
+    <h2 *ngIf="(content['fields']['title'] !== '')" class="font-weight-light">{{content['fields']['title']}}</h2>
+    <p *ngIf="(content['fields']['infoText'] !== '')" [innerHtml]="content['fields']['infoText']"></p>
+    <a *ngIf="(content['fields']['actionTitle'] !== '' && content['fields']['actionUrl'] !== '')"
+       class="btn btn-lg btn-secondary btn-min-width text-wrap mt-3" href="{{content['fields']['actionUrl']}}">{{content['fields']['actionTitle']}}</a>
+  </div>
+</div>

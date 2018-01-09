@@ -1,0 +1,60 @@
+<section *ngIf="content!==false" class="mb-3 mt-3 border border-light">
+
+  <!-- SLIDER -->
+  <div class="item-slider" id="slider-tarjetas" appSwiper
+       [checkMobile]="false"
+       [element]="'#slider-tarjetas .swiper-container'"
+       [nextEl]="'#slider-tarjetas .slider-next'"
+       [prevEl]="'#slider-tarjetas .slider-prev'"
+       [paginationEl]="'#slider-tarjetas .swiper-pagination'"
+       [qSlidePerView]="1"
+       [checkResize]="false">
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <!-- SLIDE -->
+        <div class="swiper-slide" *ngFor="let tarjeta of content; let idx = index">
+
+          <div class="bg-striped-childs w-100">
+            <div class="row text-center p-4">
+              <div class="col-12">
+                <img *ngIf="tarjeta['fields']['image'] && tarjeta['fields']['image']['fields']" class="img-fluid mb-3"
+                     src="{{tarjeta['fields']['image']['fields']['file']['url']}}"
+                     alt="{{tarjeta['fields']['image']['fields']['title']}}">
+                <p>{{tarjeta['fields']['nombreTarjeta']}}</p>
+              </div>
+            </div>
+
+            <div class="row segmented-childs align-items-center p-4" *ngFor="let item of tarjeta['fields']['detallesTarjeta']">
+              <div class="col-md-12 font-weight-bold">{{item['detalleLabel']}}</div>
+              <div *ngIf="item['check'] === true" class="col-md-12 text-center"><img src="assets/ic-check.svg" alt="check"></div>
+              <div *ngIf="item['check'] === undefined" class="col-md-12">{{item['detalleValue']}}</div>
+            </div>
+
+            <div class="row segmented-childs text-center p-4">
+              <div class="col-md-12"><a href="#" class="btn btn-lg btn-secondary">VER MÁS</a></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+    <div class="slider-next slider-tarjetas">
+					<span class="icon icon-fixed">
+						<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+						    <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+						    <path d="M0 0h24v24H0z" fill="none"/>
+						</svg>
+					</span>
+    </div>
+    <div class="slider-prev slider-tarjetas">
+      <div class="icon icon-fixed">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+          <path d="M0 0h24v24H0z" fill="none"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+</section>

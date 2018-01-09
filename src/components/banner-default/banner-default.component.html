@@ -1,0 +1,36 @@
+<!-- MESES SIN INTERESES -->
+<div *ngIf="(content && content['fields']['contentPosition']!=='content only')" [@fadeInEffect] class="text-center border border-light mb-4">
+  <div class="row align-items-center">
+    <div class="col-md-6" [ngClass]="{
+      'order-md-2' : (index % 2 === 1)
+    }">
+      <img *ngIf="(content['fields']['image']['fields']['file'])" src="{{content['fields']['image']['fields']['file']['url']}}" class="img-fluid"
+           alt="{{content['fields']['image']['fields']['title']}}">
+    </div>
+    <div class="col-md-6">
+      <div class="content-body">
+        <h2 *ngIf="(content['fields']['title']!=='')" class="font-weight-light">{{content['fields']['title']}}</h2>
+        <p *ngIf="(getTextContent(content['fields']) !== '')" [innerHtml]="(getTextContent(content['fields']) | marked)"></p>
+        <a *ngIf="(content['fields']['actionTitle'])" target="{{target}}"
+           appGa="GAevent"
+           appGaCategory="Promociones Mundo Falabella"
+           appGaAction="{{content['fields']['title']}}"
+           appGaLabel="{{content['fields']['title']}}"
+           class="btn btn-lg btn-secondary text-wrap mt-3 btn-min-width"
+           href="{{content['fields']['actionUrl']}}">{{content['fields']['actionTitle']}}</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- OPORTUNIDADES -->
+<div *ngIf="(content && content['fields']['contentPosition']==='content only')" [@fadeInEffect] class="bg-light mb-4">
+  <div class="py-5 px-3 px-md-5">
+    <h2 *ngIf="(content['fields']['title']!=='')" class="text-center font-weight-light mb-5">{{content['fields']['title']}}</h2>
+
+    <div [innerHtml]="(content['fields']['content'] | marked)"></div>
+
+  </div>
+
+</div>
+

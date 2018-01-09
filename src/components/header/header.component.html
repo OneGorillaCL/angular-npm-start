@@ -1,0 +1,403 @@
+<!-- SIDEBAR -->
+<div class="sidebar-modal" [ngClass]="{'is-open':sidebarOpen===true}">
+  <div class="sidebar-overlay" (click)="closeSidebar()"></div>
+  <aside class="main-sidebar">
+    <div class="sidebar-content">
+      <button class="btn btn-link btn-close" type="button" data-sidebar="close" (click)="closeSidebar()">
+					<span class="icon icon-fixed">
+						<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+						    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+						    <path d="M0 0h24v24H0z" fill="none"/>
+						</svg>
+					</span>
+      </button>
+
+      <div class="list-group list-group-flush" id="menu-collapse" data-children=".menu-item">
+        <div class="menu-item">
+          <a [routerLink]="['/home' ]"
+             appGa="GAevent"
+             appGaCategory="Menu superior"
+             appGaAction="Inicio"
+             appGaLabel="Inicio"
+             class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+            Inicio
+          </a>
+        </div>
+        <div class="menu-item">
+          <button class="list-group-item list-group-item-action d-flex justify-content-between align-items-center trigger-collapse"
+                  [ngClass]="{'active' : currentCollapsed === 'menu-tarjetas'}"
+                  data-toggle="collapse" data-parent="#menu-collapse" (click)="setCurrentCollapsed('menu-tarjetas')" href="#menu-tarjetas" aria-expanded="true" aria-controls="menu-tarjetas" type="button">
+            Tarjetas
+            <span class="icon icon-md icon-collapse">
+								<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+								    <path d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"/>
+								    <path d="M0 0h24v24H0z" fill="none"/>
+								</svg>
+							</span>
+          </button>
+          <div id="menu-tarjetas" class="collapse" role="tabpanel">
+            <ul class="nav nav-light flex-column pl-3">
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/tarjeta-falabella-soriana-mastercard' ]">Tarjeta de Crédito Falabella Soriana MasterCard</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/tarjeta-falabella-soriana' ]">Tarjeta de Crédito Falabella Soriana</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/tarjetas' ]"><strong>Comparador de Tarjetas</strong></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="menu-item">
+          <a [routerLink]="['/beneficios' ]"
+             appGa="GAevent"
+             appGaCategory="Menu superior"
+             appGaAction="Beneficios"
+             appGaLabel="Beneficios" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+            Promociones
+          </a>
+        </div>
+
+        <div class="menu-item">
+          <a [routerLink]="['/recompensas' ]"
+             appGa="GAevent"
+             appGaCategory="Menu superior"
+             appGaAction="Recompensas Soriana"
+             appGaLabel="Recompensas Soriana" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+            Programa Recompensas
+          </a>
+        </div>
+
+         <div class="menu-item">
+          <a [routerLink]="['/nosotros' ]"
+             appGa="GAevent"
+             appGaCategory="Menu superior"
+             appGaAction="Nosotros"
+             appGaLabel="Nosotros" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+            Nosotros
+          </a>
+        </div>
+
+        <div class="menu-item">
+          <a [routerLink]="['/ayuda-y-contacto' ]"
+             appGa="GAevent"
+             appGaCategory="Menu superior"
+             appGaAction="Ayuda y Contacto"
+             appGaLabel="Ayuda y Contacto" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+            Ayuda y Contacto
+          </a>
+        </div>
+
+      </div>
+
+
+    </div>
+  </aside>
+</div>
+
+<!-- FIXED TOP -->
+<div id="fixed-top-container">
+  <div class="container">
+    <nav class="navbar  navbar-light">
+      <div class="flex-1">
+        <a class="navbar-brand" [routerLink]="['/home' ]"
+           appGa="GAevent"
+           appGaCategory="Menu header"
+           appGaAction="Logo Falabella"
+           appGaLabel="Falabella Soriana">
+          <img src="assets/logo.svg" height="30" alt="logo">
+        </a>
+      </div>
+      <div>
+        <div id="navbarSupportedContent">
+          <!-- MAIN NAV -->
+          <ul (mouseleave)="clearCurrentSubmenu()" class="nav nav-light nav-linemarker nav-segmented nav-submenu text-uppercase" id="main-nav-top">
+            <li (mouseleave)="clearCurrentSubmenu()" class="nav-item nav-item-padding">
+              <a class="nav-link" [ngClass]="{'active' : currentUri === '' || currentUri === '/home'}"
+                 [routerLink]="['/home' ]"
+                 appGa="GAevent"
+                 appGaCategory="Menu superior"
+                 appGaAction="Inicio"
+                 appGaLabel="Inicio">Inicio</a>
+            </li>
+            <li class="nav-item nav-item-padding" appDropdown>
+              <a class="nav-link" href="#" id="dropdownTarjetas" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                 [ngClass]="{'active' : currentUri === '/tarjeta-falabella-soriana' ||  currentUri === '/tarjetas' ||
+              currentUri === '/tarjeta-falabella-soriana-mastercard'}" [routerLink]="['/tarjeta-falabella-soriana-mastercard' ]"
+                 appGa="GAevent"
+                 appGaCategory="Menu superior"
+                 appGaAction="Tarjetas"
+                 appGaLabel="Tarjetas">Tarjetas</a>
+              <div class="dropdown-menu" aria-labelledby="dropdownTarjetas">
+                <a class="dropdown-item" [routerLink]="['/tarjeta-falabella-soriana-mastercard' ]">Tarjeta de Crédito Falabella Soriana MasterCard</a>
+                <a class="dropdown-item" [routerLink]="['/tarjeta-falabella-soriana' ]">Tarjeta de Crédito Falabella Soriana</a>
+                <a class="dropdown-item" [routerLink]="['/tarjetas' ]"><strong>Comparador de Tarjetas</strong></a>
+              </div>
+            </li>
+            <li (mouseleave)="clearCurrentSubmenu()" class="nav-item nav-item-padding">
+              <a class="nav-link" [ngClass]="{'active' : currentUri === '/beneficios'
+                   || currentUri.includes('/beneficios/') === true
+                   || currentUri.includes('/beneficio-detalle/') === true}" [routerLink]="['/beneficios' ]"
+                 appGa="GAevent"
+                 appGaCategory="Menu superior"
+                 appGaAction="Beneficios"
+                 appGaLabel="Beneficios">Promociones</a>
+            </li>
+            <li (mouseleave)="clearCurrentSubmenu()" class="nav-item nav-item-padding">
+              <a class="nav-link" [ngClass]="{'active' : currentUri === '/recompensas'}" [routerLink]="['/recompensas' ]"
+                 appGa="GAevent"
+                 appGaCategory="Menu superior"
+                 appGaAction="Recompensas Soriana"
+                 appGaLabel="Recompensas Soriana">Programa Recompensas</a>
+            </li>
+
+            <li (mouseleave)="clearCurrentSubmenu()" class="nav-item nav-item-padding">
+              <a class="nav-link" [ngClass]="{'active' : currentUri === '/nosotros'}" [routerLink]="['/nosotros' ]"
+                 appGa="GAevent"
+                 appGaCategory="Menu superior"
+                 appGaAction="Nosotros"
+                 appGaLabel="Nosotros">Nosotros</a>
+            </li>
+            <li (mouseleave)="clearCurrentSubmenu()" class="nav-item nav-item-padding">
+              <a class="nav-link" [ngClass]="{'active' : currentUri === '/ayuda-y-contacto' || currentUri === '/sucursales' }" [routerLink]="['/ayuda-y-contacto' ]"
+                 appGa="GAevent"
+                 appGaCategory="Menu superior"
+                 appGaAction="Ayuda y Contacto"
+                 appGaLabel="Ayuda y Contacto">Ayuda y Contacto</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="d-flex flex-1 justify-content-end"></div>
+    </nav>
+    <nav *ngIf="(
+  currentUri === '/beneficios' ||
+  currentUri.includes('/beneficios/') !== false ||
+  currentUri.includes('/beneficio-detalle/') !== false
+  )" class="nav nav-sm nav-justified nav-light nav-linemarker text-uppercase" id="tab-benefits" role="tablist">
+      <a [appScrollto]="'#menu-benefits'" [factor]="2" [routerLink]="['/beneficios/', 'destacados' ]" class="nav-item nav-link"
+         [ngClass]="{'active':(currentTab===''||currentTab==='destacados')}">
+						<span class="icon icon-lg text-secondary mb-3">
+							<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+						    <g fill-rule="nonzero" fill="#4D833F">
+						        <path d="M9.775 12.53H4.696c-.935 0-1.696.76-1.696 1.695v5.08C3 20.24 3.76 21 4.696 21h5.079c.935 0 1.696-.76 1.696-1.696v-5.08c0-.934-.761-1.695-1.696-1.695zm.565 6.774a.566.566 0 0 1-.565.566H4.696a.566.566 0 0 1-.565-.566v-5.08c0-.31.253-.564.565-.564h5.079c.312 0 .565.253.565.565v5.08zM19.304 12.53h-5.079c-.935 0-1.696.76-1.696 1.695v5.08c0 .935.761 1.695 1.696 1.695h5.08c.934 0 1.695-.76 1.695-1.696v-5.08c0-.934-.76-1.695-1.696-1.695zm.637 6.833c0 .319-.26.578-.578.578h-5.196a.579.579 0 0 1-.579-.578v-5.197c0-.318.26-.578.579-.578h5.196c.318 0 .578.26.578.578v5.197zM9.775 3H4.696C3.761 3 3 3.76 3 4.696v5.079c0 .935.76 1.696 1.696 1.696h5.079c.935 0 1.696-.761 1.696-1.696v-5.08C11.47 3.762 10.71 3 9.775 3zm.565 6.775a.566.566 0 0 1-.565.565H4.696a.566.566 0 0 1-.565-.565v-5.08c0-.31.253-.564.565-.564h5.079c.312 0 .565.253.565.565v5.079zM19.304 3h-5.079c-.935 0-1.696.76-1.696 1.696v5.079c0 .935.761 1.696 1.696 1.696h5.08c.934 0 1.695-.761 1.695-1.696v-5.08C21 3.762 20.24 3 19.304 3zm.588 6.797a.566.566 0 0 1-.566.565h-5.083a.566.566 0 0 1-.566-.565V4.714c0-.312.254-.566.566-.566h5.083c.312 0 .566.254.566.566v5.083z"/>
+						    </g>
+						</svg>
+						</span>
+        <div>Destacados</div>
+      </a>
+      <a [appScrollto]="'#menu-benefits'" [factor]="2" [routerLink]="['/beneficios/', 'soriana' ]" class="nav-item nav-link"
+         [ngClass]="{'active':(currentTab==='soriana')}">
+						<span class="icon icon-lg text-secondary mb-3">
+							<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+							    <g fill="none" fill-rule="evenodd">
+							        <g fill="#4D833F">
+							            <path d="M23.99 5.385c0-.746-.662-1.35-1.482-1.35H1.488c-.82 0-1.483.604-1.483 1.35v13.23c0 .746.662 1.35 1.482 1.35h21.07c.82 0 1.482-.604 1.433-1.4V5.385z" fill-rule="nonzero"/>
+							            <path d="M.442 7.263h23.121v2.905H.442z"/>
+							        </g>
+							        <path d="M22.928 18.229c0 .459-.254.757-.507.757H1.57c-.307 0-.507-.379-.507-.757-.01-5.226-.01-8.539 0-9.94.011-1.514-.065-2.502 0-2.757.017-.065.028-.326.168-.39.093-.044.283-.085.57-.123h20.292c.326.044.545.113.658.207.113.095.197.315.252.66l-.074 12.343z" fill="#FFF"/>
+							        <path fill="#4D833F" d="M.442 6.905h23.121v1.52H.442zm3.846 4.737h17.191a.361.361 0 1 1 0 .723H4.288a.361.361 0 1 1 0-.723zm6.18 1.967h4.88a.358.358 0 0 1 0 .715h-4.88a.358.358 0 0 1 0-.715z"/>
+							    </g>
+							</svg>
+						</span>
+        <div>Soriana</div>
+      </a>
+      <a [appScrollto]="'#menu-benefits'" [factor]="2" [routerLink]="['/beneficios/', 'cityclub' ]" class="nav-item nav-link"
+         [ngClass]="{'active':(currentTab==='cityclub')}">
+						<span class="icon icon-lg text-secondary mb-3">
+							<svg viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg">
+							    <g fill="none" fill-rule="evenodd">
+							        <path d="M23.99 1.385c0-.746-.662-1.35-1.482-1.35H1.488C.667.036.004.64.004 1.386v13.23c0 .746.662 1.35 1.482 1.35h21.07c.82 0 1.482-.604 1.433-1.4V1.385z" fill-rule="nonzero" fill="#4D833F"/>
+							        <path d="M22.928 14.229c0 .459-.254.757-.507.757H1.57c-.307 0-.507-.379-.507-.757-.01-5.226-.01-8.539 0-9.94.011-1.514-.065-2.502 0-2.757.017-.065.028-.326.168-.39.093-.044.283-.085.57-.123h20.292c.326.044.545.113.658.207.113.095.197.315.252.66l-.074 12.343z" fill="#FFF"/>
+							        <ellipse fill="#FA9B00" opacity=".887" cx="19.877" cy="10.994" rx="1.963" ry="1.788"/>
+							        <ellipse fill="#E80000" opacity=".759" cx="17.914" cy="10.994" rx="1.963" ry="1.788"/>
+							        <rect fill="#D1C162" x="2.209" y="5.006" width="3.485" height="2.101" rx="1.05"/>
+							        <path fill="#4D833F" d="M.442 2.905h23.121v1.52H.442zm3.846 4.737h17.191a.361.361 0 1 1 0 .723H4.288a.361.361 0 1 1 0-.723zm6.18 1.967h4.88a.358.358 0 0 1 0 .715h-4.88a.358.358 0 0 1 0-.715z"/>
+							    </g>
+							</svg>
+						</span>
+        <div>City Club</div>
+      </a>
+      <a [appScrollto]="'#menu-benefits'" [factor]="2" [routerLink]="['/beneficios/', 'cupones-descuento' ]" class="nav-item nav-link"
+         [ngClass]="{'active':(currentTab==='cupones-descuento')}">
+						<span class="icon icon-lg text-secondary mb-3">
+							<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+							    <defs>
+							        <path d="M0 10.546l7.562-7.292c1.3-1.277 2.303-2.189 3.006-2.737.626-.487 1.915-.613 3.869-.379L18.295 0a186.05 186.05 0 0 0 0 3.254c.024 1.717.256 3.168-.134 3.906-.26.492-1.67 1.992-4.228 4.499l-5.97 6.162L0 10.546z" id="a"/>
+							        <path d="M22.107-.427c-.326 0-.544.21-.544.526 0 1.472-1.198 2.629-2.723 2.629h-3.268c-.327 0-.544.21-.544.526 0 .315.217.525.544.525h.381c-.163.316-.544.526-.925.526-.6 0-1.09-.473-1.09-1.051 0-.579.49-1.052 1.09-1.052.326 0 .544-.21.544-.526 0-.315-.218-.526-.544-.526-1.199 0-2.179.947-2.179 2.104 0 1.156.98 2.103 2.179 2.103a2.21 2.21 0 0 0 2.124-1.578h1.143V6.2a2.46 2.46 0 0 1-.762 1.787l-9.585 9.78-7.951-7.15L10.072.887A2.722 2.722 0 0 1 12.032.1h6.263v2.629h.545l.544.075v-3.23c0-.316-.218-.526-.544-.526h-6.808c-1.034 0-1.96.368-2.668 1.104L-1.147 10.247a.47.47 0 0 0-.163.369.47.47 0 0 0 .163.368l8.714 7.887a.503.503 0 0 0 .38.158.503.503 0 0 0 .382-.158l9.966-10.149a3.653 3.653 0 0 0 1.035-2.524V3.727c1.906-.263 3.322-1.788 3.322-3.628 0-.316-.218-.526-.545-.526z" id="c"/>
+							    </defs>
+							    <g transform="translate(1.362 3.95)" fill="none" fill-rule="evenodd">
+							        <mask id="b" fill="#fff">
+							            <use xlink:href="#a"/>
+							        </mask>
+							        <use fill="#FFF" xlink:href="#a"/>
+							        <path d="M6.859 5.883c-.926 0-1.634.683-1.634 1.577 0 .894.708 1.578 1.634 1.578.925 0 1.633-.684 1.633-1.578S7.784 5.883 6.86 5.883zm.055 2.362c-.514 0-.857-.328-.857-.82 0-.49.343-.818.857-.818.515 0 .858.328.858.819 0 .491-.343.819-.858.819zm1.578 3.422c-.925 0-1.633.684-1.633 1.578s.708 1.577 1.633 1.577c.926 0 1.634-.683 1.634-1.577 0-.894-.708-1.578-1.634-1.578zm.013 2.355c-.514 0-.857-.328-.857-.819 0-.491.343-.819.857-.819.515 0 .858.328.858.819 0 .491-.343.819-.858.819zm2.002-6.404a.54.54 0 0 0-.762 0l-4.901 4.733a.496.496 0 0 0 0 .736.6.6 0 0 0 .38.158.6.6 0 0 0 .382-.158l4.901-4.733a.496.496 0 0 0 0-.736z" fill="#4D833F" fill-rule="nonzero" mask="url(#b)"/>
+							        <use fill="#4D833F" fill-rule="nonzero" xlink:href="#c"/>
+							    </g>
+							</svg>
+						</span>
+        <div>Comercios</div>
+      </a>
+    </nav>
+
+    <div *ngIf="(currentUri === '/tarjetas') && tarjetasContent !== false" class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-8">
+        <div class="row mt-3 pr-4 pl-4">
+          <div *ngFor="let tarjeta of tarjetasContent" class="col-md-6 text-center">
+            <img *ngIf="tarjeta['fields']['image'] && tarjeta['fields']['image']['fields']" class="img-fluid mb-3" width="30%"
+                 src="{{tarjeta['fields']['image']['fields']['file']['url']}}"
+                 alt="{{tarjeta['fields']['image']['fields']['title']}}">
+            <p>{{tarjeta['fields']['nombreTarjeta']}}
+            <!-- <a *ngIf="tarjeta['fields']['actionUrl']" href="{{tarjeta['fields']['actionUrl']}}" class="btn btn-sm btn-primary">
+              {{tarjeta['fields']['actionTitle']}}</a> -->
+              </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- TOP BAR -->
+<nav class="top-bar navbar navbar-dark bg-dark d-none d-lg-block" id="top-bar">
+  <ul class="navbar-nav flex-row">
+    <li class="nav-item">
+      <a class="nav-link"
+         appGa="GAevent"
+         appGaCategory="Menu header"
+         appGaAction="Header Soriana"
+         appGaLabel="Soriana"
+         href="https://www.soriana.com/" target="_blank">Soriana</a>
+    </li>
+  </ul>
+</nav>
+
+<!-- MAIN HEADER -->
+<div class="main-header-placeholder">
+  <header class="main-header" id="main-header" appHeadroom>
+
+    <div class="main-navbar">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col">
+            <button class="btn btn-link btn-menu d-lg-none" type="button" data-sidebar="open" (click)="openSidebar()">
+								<span class="icon icon-fixed">
+									<svg viewBox="0 0 43 29" xmlns="http://www.w3.org/2000/svg">
+									    <g fill="none" fill-rule="evenodd">
+									        <path d="M-3-9h48v48H-3z"/>
+									        <path d="M2.5 29h38a2.5 2.5 0 1 0 0-5h-38a2.5 2.5 0 1 0 0 5zm0-12h38a2.5 2.5 0 1 0 0-5h-38a2.5 2.5 0 1 0 0 5zM0 2.5A2.5 2.5 0 0 0 2.5 5h38a2.5 2.5 0 1 0 0-5h-38A2.5 2.5 0 0 0 0 2.5z" fill="#3F3F3F" fill-rule="nonzero"/>
+									    </g>
+									</svg>
+								</span>
+            </button>
+          </div>
+          <div class="col-auto text-center">
+            <a [routerLink]="['/home' ]"
+               appGa="GAevent"
+               appGaCategory="Menu header"
+               appGaAction="Logo Falabella"
+               appGaLabel="Falabella Soriana"><img class="main-logo" src="assets/logo.svg" alt="Logo CMR"></a>
+          </div>
+          <div class="col d-flex justify-content-end">
+            <!--<button type="button" class="btn btn-lg btn-default d-none d-lg-block">Mi Cuenta</button>-->
+          </div>
+        </div>
+
+        <!-- MAIN NAV CONTAINER -->
+        <div class="main-nav-container d-none d-lg-flex mt-3 justify-content-center">
+          <div>
+
+            <!-- SUBMENU -->
+            <div (mouseenter)="setSubMenu('submenu-tarjetas')" (mouseleave)="clearCurrentSubmenu()" class="submenu" id="submenu-tarjetas"
+                 [ngClass]="{'show' : currentSubmenu === 'submenu-tarjetas'}">
+              <div class="d-flex">
+                <div class="flex-1">
+                  <ul class="nav nav-light flex-column">
+                    <li class="nav-item">
+                      <a class="nav-link" [routerLink]="['/tarjeta-falabella-soriana-mastercard' ]">
+                        Tarjeta de Crédito Falabella Soriana MasterCard
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" [routerLink]="['/tarjeta-falabella-soriana' ]">
+                        Tarjeta de Crédito Falabella Soriana
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" [routerLink]="['/tarjetas' ]">
+                        <strong>Comparador de tarjetas</strong>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <!-- MAIN NAV -->
+            <ul (mouseleave)="clearCurrentSubmenu()" class="nav nav-light nav-linemarker nav-segmented nav-submenu text-uppercase justify-content-center" id="main-nav">
+              <li (mouseenter)="clearCurrentSubmenu()" class="nav-item nav-item-padding">
+                <a class="nav-link"
+                   appGa="GAevent"
+                   appGaCategory="Menu superior"
+                   appGaAction="Inicio"
+                   appGaLabel="Inicio"
+                   [ngClass]="{'active' : currentUri === '' || currentUri === '/home'}"
+                   [routerLink]="['/home' ]">Inicio</a>
+              </li>
+              <li (mouseenter)="setSubMenu('submenu-tarjetas')" class="nav-item nav-item-padding has-submenu"
+                  [ngClass]="{'show' : currentSubmenu === 'submenu-tarjetas'}">
+                <a class="nav-link"
+                   appGa="GAevent"
+                   appGaCategory="Menu superior"
+                   appGaAction="Tarjetas"
+                   appGaLabel="Tarjetas"
+                   [ngClass]="{'active' : currentUri === '/tarjeta-falabella-soriana' ||  currentUri === '/tarjetas' ||
+            currentUri === '/tarjeta-falabella-soriana-mastercard'}" [routerLink]="['/tarjeta-falabella-soriana-mastercard' ]">Tarjetas</a>
+              </li>
+              <li (mouseenter)="clearCurrentSubmenu()" class="nav-item nav-item-padding">
+                <a class="nav-link"
+                   appGa="GAevent"
+                   appGaCategory="Menu superior"
+                   appGaAction="Beneficios"
+                   appGaLabel="Beneficios"
+                   [ngClass]="{'active' : currentUri === '/beneficios'
+                   || currentUri.includes('/beneficios/') === true
+                   || currentUri.includes('/beneficio-detalle/') === true}" [routerLink]="['/beneficios' ]">Promociones</a>
+			  </li>
+              <li (mouseenter)="clearCurrentSubmenu()" class="nav-item nav-item-padding">
+                <a class="nav-link"
+                   appGa="GAevent"
+                   appGaCategory="Menu superior"
+                   appGaAction="Recompensas Soriana"
+                   appGaLabel="Recompensas Soriana"
+                   [ngClass]="{'active' : currentUri === '/recompensas'}" [routerLink]="['/recompensas' ]">Programa Recompensas</a>
+              </li>
+               <li (mouseenter)="clearCurrentSubmenu()" class="nav-item nav-item-padding">
+                <a class="nav-link"
+                   appGa="GAevent"
+                   appGaCategory="Menu superior"
+                   appGaAction="Nosotros"
+                   appGaLabel="Nosotros"
+                   [ngClass]="{'active' : currentUri === '/nosotros'}" [routerLink]="['/nosotros' ]">Nosotros</a>
+              </li>
+              <li (mouseenter)="clearCurrentSubmenu()" class="nav-item nav-item-padding">
+                <a class="nav-link"
+                   appGa="GAevent"
+                   appGaCategory="Menu superior"
+                   appGaAction="Ayuda y Contacto"
+                   appGaLabel="Ayuda y Contacto"
+                   [ngClass]="{'active' : currentUri === '/ayuda-y-contacto' || currentUri === '/sucursales' }" [routerLink]="['/ayuda-y-contacto' ]">Ayuda y Contacto</a>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </header>
+</div>

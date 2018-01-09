@@ -1,0 +1,12 @@
+
+  <div class="card-group h-100" *ngIf="content !== false">
+    <a href="{{content['fields']['actionUrl']}}" class="card card-item text-dark text-center mb-4">
+      <img src="{{content['fields']['image']['fields']['file']['url']}}" class="card-img-top"
+           alt="{{content['fields']['image']['fields']['title']}}" >
+      <div class="card-body">
+        <h4>{{content['fields']['title']}}</h4>
+        <a *ngIf="content['fields']['actionUrl']" class="btn btn-lg btn-secondary text-uppercase text-wrap btn-min-width"
+           href="{{content['fields']['actionUrl']}}">{{content['fields']['actionTitle']}}</a>
+      </div>
+    </a>
+  </div>

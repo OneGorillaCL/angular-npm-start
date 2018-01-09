@@ -1,0 +1,49 @@
+<div *ngIf="content!==false" class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-8">
+    <div class="row text-center mt-3 p-4">
+      <div *ngFor="let tarjeta of content" class="col-md-6 pr-4 pl-4">
+        <img *ngIf="tarjeta['fields']['image'] && tarjeta['fields']['image']['fields']" class="img-fluid mb-3"
+             src="{{tarjeta['fields']['image']['fields']['file']['url']}}"
+             alt="{{tarjeta['fields']['image']['fields']['title']}}">
+        <p>{{tarjeta['fields']['nombreTarjeta']}}</p>
+        <!-- <a *ngIf="tarjeta['fields']['actionUrl']" href="{{tarjeta['fields']['actionUrl']}}" class="btn btn-lg btn-primary">
+          {{tarjeta['fields']['actionTitle']}}</a> -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="content!==false" class="bg-striped-childs mt-3 mt-md-3  mb-3 mb-md-3 text-center">
+  <ng-container *ngFor="let item of compareData; let idx = index" [ngSwitch]="getCompareCase(idx)">
+
+    <div *ngSwitchCase="'_equals_'" class="row segmented-childs align-items-center p-4">
+      <div class="col-md-4 text-left font-weight-bold">{{item['detalleLabel']}}</div>
+      <div class="col-md-8">{{item['detalleValue']}}</div>
+    </div>
+
+    <div *ngSwitchCase="'_default_'" class="row segmented-childs align-items-center p-4">
+      <div class="col-md-4 text-left font-weight-bold">{{item['detalleLabel']}}</div>
+      <div class="col-md-4" *ngFor="let data of item['data']">
+        <ng-container *ngIf="data['check']"> <img src="assets/ic-check.svg" alt="check"> </ng-container>
+        <ng-container *ngIf="data['check']===undefined">{{data['detalleValue']}}</ng-container>
+        <!-- <ng-container *ngIf="data['check']===undefined && data['detalleValue']===''">
+          <img src="assets/ic-equis.svg" alt="equis">
+        </ng-container> -->
+      </div>
+    </div>
+
+  </ng-container>
+
+  <div class="row segmented-childs align-items-center p-4">
+    <div class="col-md-4 text-left font-weight-bold"></div>
+    <div *ngFor="let tarjeta of content" class="col-md-4">
+      <a *ngIf="tarjeta['fields']['actionUrl2']" href="{{tarjeta['fields']['actionUrl2']}}" class="btn btn-lg btn-secondary">
+        {{tarjeta['fields']['actionTitle2']}}
+      </a>
+    </div>
+    <!-- <div class="col-md-4"><a [routerLink]="['/tarjeta-falabella-soriana' ]" class="btn btn-lg btn-secondary">VER MÁS</a></div>
+    <div class="col-md-4"><a [routerLink]="['/tarjeta-falabella-soriana-mastercard' ]" class="btn btn-lg btn-secondary">VER MÁS</a></div>-->
+  </div>
+
+</div>
