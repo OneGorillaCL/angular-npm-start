@@ -1173,22 +1173,22 @@ var MarkedPipe = (function () {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var SampleModule = (function () {
-    function SampleModule() {
+var FifUiKitAngularBase = (function () {
+    function FifUiKitAngularBase() {
     }
     /**
      * @return {?}
      */
-    SampleModule.forRoot = /**
+    FifUiKitAngularBase.forRoot = /**
      * @return {?}
      */
     function () {
         return {
-            ngModule: SampleModule,
+            ngModule: FifUiKitAngularBase,
             providers: [ContenfulService]
         };
     };
-    SampleModule.decorators = [
+    FifUiKitAngularBase.decorators = [
         { type: NgModule, args: [{
                     imports: [
                         CommonModule
@@ -1246,8 +1246,8 @@ var SampleModule = (function () {
                 },] },
     ];
     /** @nocollapse */
-    SampleModule.ctorParameters = function () { return []; };
-    return SampleModule;
+    FifUiKitAngularBase.ctorParameters = function () { return []; };
+    return FifUiKitAngularBase;
 }());
 
-export { SampleModule, HeaderComponent, HeaderPageComponent, FooterComponent, SliderComponent, BannerBgImageComponent, BannerDefaultComponent, CardComponent, HeaderTarjetaComponent, ContentBoxComponent, ContentTabTarjetaComponent, CompareComponent, CardContactComponent, FaqComponent, LoaderComponent, CompareMobileComponent, GaDirective, DatepickerDirective, ScrolltoDirective, JarallaxDirective, SwiperDirective, HeadroomDirective, DropdownDirective, MarkedPipe, ContenfulService };
+export { FifUiKitAngularBase, HeaderComponent, HeaderPageComponent, FooterComponent, SliderComponent, BannerBgImageComponent, BannerDefaultComponent, CardComponent, HeaderTarjetaComponent, ContentBoxComponent, ContentTabTarjetaComponent, CompareComponent, CardContactComponent, FaqComponent, LoaderComponent, CompareMobileComponent, GaDirective, DatepickerDirective, ScrolltoDirective, JarallaxDirective, SwiperDirective, HeadroomDirective, DropdownDirective, MarkedPipe, ContenfulService };

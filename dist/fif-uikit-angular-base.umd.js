@@ -1171,22 +1171,22 @@ var MarkedPipe = (function () {
  * @fileoverview added by tsickle
  * @suppress {checkTypes} checked by tsc
  */
-var SampleModule = (function () {
-    function SampleModule() {
+var FifUiKitAngularBase = (function () {
+    function FifUiKitAngularBase() {
     }
     /**
      * @return {?}
      */
-    SampleModule.forRoot = /**
+    FifUiKitAngularBase.forRoot = /**
      * @return {?}
      */
     function () {
         return {
-            ngModule: SampleModule,
+            ngModule: FifUiKitAngularBase,
             providers: [ContenfulService]
         };
     };
-    SampleModule.decorators = [
+    FifUiKitAngularBase.decorators = [
         { type: core.NgModule, args: [{
                     imports: [
                         common.CommonModule
@@ -1244,11 +1244,11 @@ var SampleModule = (function () {
                 },] },
     ];
     /** @nocollapse */
-    SampleModule.ctorParameters = function () { return []; };
-    return SampleModule;
+    FifUiKitAngularBase.ctorParameters = function () { return []; };
+    return FifUiKitAngularBase;
 }());
 
-exports.SampleModule = SampleModule;
+exports.FifUiKitAngularBase = FifUiKitAngularBase;
 exports.HeaderComponent = HeaderComponent;
 exports.HeaderPageComponent = HeaderPageComponent;
 exports.FooterComponent = FooterComponent;

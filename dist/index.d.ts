@@ -23,6 +23,6 @@ export * from './directives/headroom.directive';
 export * from './directives/dropdown.directive';
 export * from './pipes/marked.pipe';
 export * from "./services/contenful.service";
-export declare class SampleModule {
+export declare class FifUiKitAngularBase {
     static forRoot(): ModuleWithProviders;
 }
