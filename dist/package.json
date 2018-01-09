@@ -1,0 +1,38 @@
+{
+  "name": "fif-uikit-angular-base",
+  "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://bitbucket.org/falabellafif/fif-uikit-angular-base"
+  },
+  "author": {
+    "name": "Reigndesign",
+    "email": "info@reigndesign.com"
+  },
+  "keywords": [
+    "angular"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://bitbucket.org/falabellafif/fif-uikit-angular-base/issues"
+  },
+  "main": "fif-uikit-angular-base.umd.js",
+  "module": "fif-uikit-angular-base.js",
+  "jsnext:main": "fif-uikit-angular-base.js",
+  "typings": "fif-uikit-angular-base.d.ts",
+  "peerDependencies": {
+    "@angular/core": "^4.0.0",
+    "@angular/animations": "^5.1.0",
+    "@angular/router": "^5.1.0",
+    "rxjs": "^5.1.0",
+    "swiper": "^4.0.7",
+    "headroom.js": "^0.9.4",
+    "jarallax": "^1.9.1",
+    "jquery": "^3.2.1",
+    "marked": "^0.3.7",
+    "air-datepicker": "^2.2.3",
+    "contentful": "^5.0.5",
+    "zone.js": "^0.8.4",
+    "util": "^0.10.3"
+  }
+}
