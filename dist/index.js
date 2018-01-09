@@ -1,6 +1,6 @@
 import { Component, Directive, ElementRef, EventEmitter, HostListener, Inject, Injectable, Input, NgModule, Output, Pipe, Renderer2 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { createClient } from 'contentful';
 import { isUndefined } from 'util';
 import { DOCUMENT } from '@angular/platform-browser';
@@ -1166,7 +1166,8 @@ var FifUiKitAngularBase = (function () {
     FifUiKitAngularBase.decorators = [
         { type: NgModule, args: [{
                     imports: [
-                        CommonModule
+                        CommonModule,
+                        RouterModule
                     ],
                     declarations: [
                         HeaderComponent,

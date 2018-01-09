@@ -1165,7 +1165,8 @@ var FifUiKitAngularBase = (function () {
     FifUiKitAngularBase.decorators = [
         { type: core.NgModule, args: [{
                     imports: [
-                        common.CommonModule
+                        common.CommonModule,
+                        router.RouterModule
                     ],
                     declarations: [
                         HeaderComponent,

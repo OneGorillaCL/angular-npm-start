@@ -1,5 +1,6 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {RouterModule} from '@angular/router';
 
 import { HeaderComponent } from './components/header/header.component';
 import { HeaderPageComponent } from './components/header-page/header-page.component';
@@ -59,7 +60,8 @@ export * from "./services/contenful.service";
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+      RouterModule
   ],
   declarations: [
       HeaderComponent,
