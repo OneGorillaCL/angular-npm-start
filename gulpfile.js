@@ -164,6 +164,22 @@ gulp.task('copy:readme', function () {
 });
 
 /**
+ * 9.1 Copy styles.css from / to /dist
+ */
+gulp.task('copy:styles', function () {
+    return gulp.src([path.join(srcFolder, 'styles.css')])
+        .pipe(gulp.dest(distFolder));
+});
+
+/**
+ * 9.2 Copy assets from / to /dist
+ */
+gulp.task('copy:assets', function () {
+    return gulp.src([`${srcFolder}/assets/**/*`])
+        .pipe(gulp.dest(`${distFolder}/assets/`));
+});
+
+/**
  * 10. Delete /.tmp folder
  */
 gulp.task('clean:tmp', function () {
@@ -188,6 +204,8 @@ gulp.task('compile', function () {
     'copy:build',
     'copy:manifest',
     'copy:readme',
+    'copy:styles',
+    'copy:assets',
     'clean:build',
     'clean:tmp',
     function (err) {
