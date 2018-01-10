@@ -168,7 +168,7 @@ gulp.task('copy:readme', function () {
  */
 gulp.task('copy:styles', function () {
     return gulp.src([path.join(srcFolder, 'styles.css')])
-        .pipe(gulp.dest(`${distFolder}/css/`));
+        .pipe(gulp.dest(`${distFolder}`));
 });
 
 /**

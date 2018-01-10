@@ -20,7 +20,7 @@
   "module": "fif-uikit-angular-base.js",
   "jsnext:main": "fif-uikit-angular-base.js",
   "typings": "fif-uikit-angular-base.d.ts",
-  "peerDependencies": {
+  "dependencies": {
     "@angular/core": "^4.0.0",
     "@angular/animations": "^5.1.0",
     "@angular/router": "^5.1.0",
